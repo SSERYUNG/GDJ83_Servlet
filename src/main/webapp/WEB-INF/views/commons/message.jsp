@@ -7,9 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>${requestScope.dto.city}</h1>
-	<h1>${requestScope.dto.gion}</h1>
-	<h1>${requestScope.dto.status}</h1>
-	<h1>${requestScope.dto.humidity}</h1>
+
+	<h1>${requestScope.message}</h1>
+
 </body>
 </html>

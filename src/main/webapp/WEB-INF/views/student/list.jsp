@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -13,39 +13,39 @@
 <body>
 
 	<h1>학생 목록</h1>
-	
+
 	<div>
-	
+
 		<img alt="" src="/resources/images/cat.jpg">
-	
+
 	</div>
-	
+
 	<table class="tbl">
 		<thead>
 			<tr>
 				<th>Num</th>
 				<th>Name</th>
-				<th>Avg</th>	
+				<th>Avg</th>
 			</tr>
 		</thead>
-		
+
 		<tbody>
-		
-	<c:forEach items="${requestScope.list}" var="student">
-	<tr>
-	<td>${pageScope.student.num}</td>
-	<td>${pageScope.student.name}</td>
-	<td>${pageScope.student.avg}</td>
-	</tr>
-	</c:forEach>
-		
-		
+
+			<c:forEach items="${requestScope.list}" var="student">
+				<tr>
+					<td>${pageScope.student.num}</td>
+					<td><a href="./detail?num=${pageScope.student.num}">${pageScope.student.name}</a></td>
+					<td>${pageScope.student.avg}</td>
+				</tr>
+			</c:forEach>
+
+
 		</tbody>
-		
-	
+
+
 	</table>
-	
-	
+
+
 
 </body>
 </html>

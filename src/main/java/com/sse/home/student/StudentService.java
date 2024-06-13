@@ -1,34 +1,38 @@
 package com.sse.home.student;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class StudentService {
 
-	public List<Student> getStudents() {
-		ArrayList<Student> ar = new ArrayList<Student>();
-		Random random = new Random();
+	private StudentDAO stdao;
 
-		for (int i = 0; i < 5; i++) {
-
-			Student st = new Student();
-			st.setNum(i + 1);
-			st.setName("name" + i);
-			st.setAvg(random.nextInt(100) + random.nextDouble());
-
-			ar.add(st);
-		}
-		return ar;
+	public StudentService() {
+		stdao = new StudentDAO();
 	}
 
-	public Student makeStudent() {
+	public List<StudentDTO> getStudents() {
 
-		Student student = new Student();
-		student.setNum(1);
-		student.setName("sse");
-		student.setAvg(11.01);
+		List<StudentDTO> ar = null;
 
+		try {
+			ar = stdao.makeList();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ar;
+
+	}
+
+	public StudentDTO getone(StudentDTO student) {
+
+		try {
+			student = stdao.onelist(student);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+//			student = null;
+		}
 		return student;
 	}
 

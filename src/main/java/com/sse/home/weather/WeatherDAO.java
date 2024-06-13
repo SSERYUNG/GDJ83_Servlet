@@ -42,4 +42,19 @@ public class WeatherDAO {
 		return wdtoar;
 
 	}
+
+	// 리스트에서 하나만 꺼내오는 메서드
+	public WeatherDTO getDetail(WeatherDTO weatherDTO) throws Exception {
+		List<WeatherDTO> ar = this.getWeathers();
+		WeatherDTO result = null;
+
+		for (WeatherDTO w : ar) {
+			if (w.getNum() == weatherDTO.getNum()) {
+				result = w;
+				break;
+			}
+		}
+
+		return result;
+	}
 }

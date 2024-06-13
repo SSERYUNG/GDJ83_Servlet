@@ -10,6 +10,7 @@ public class WeatherService {
 		wdao = new WeatherDAO();
 	}
 
+//	list를 가져오는거
 	public List<WeatherDTO> getWeathers() {
 
 		List<WeatherDTO> ar = null;
@@ -23,4 +24,15 @@ public class WeatherService {
 		return ar;
 	}
 
+//	detail 가져오는거
+	public WeatherDTO getDetail(WeatherDTO weatherDTO) {
+		try {
+			weatherDTO = wdao.getDetail(weatherDTO);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			weatherDTO = null;
+		}
+		return weatherDTO;
+	}
 }

@@ -29,14 +29,16 @@ public class StudentController {
 		action.setFlag(true);
 
 		if (ar[2].equals("list")) {
-			List<Student> stlist = studentService.getStudents();
+//			번호, 이름, 평균만 출력하게 하기
+			List<StudentDTO> stlist = studentService.getStudents();
 			request.setAttribute("list", stlist);
 			action.setPath("/WEB-INF/views/student/list.jsp");
+
 		} else if (ar[2].equals("add")) {
 
 			if (method.toUpperCase().equals("POST")) {
 				System.out.println("학생 등록 데이터가 올것");
-				Student student = new Student();
+				StudentDTO student = new StudentDTO();
 
 				String name = request.getParameter("name");
 				int num = Integer.parseInt(request.getParameter("num"));
@@ -68,10 +70,20 @@ public class StudentController {
 
 		} else if (ar[2].equals("detail")) {
 
-			Student student = this.studentService.makeStudent();
-			request.setAttribute("s", student);
+			String number = request.getParameter("num");
+			StudentDTO st = new StudentDTO();
+			st.setNum(Integer.parseInt(number));
+			st = studentService.getone(st);
 
-			action.setPath("/WEB-INF/views/student/detail.jsp");
+			if (st != null) {
+
+				request.setAttribute("one", st);
+				action.setPath("/WEB-INF/views/student/detail.jsp");
+			} else {
+
+				request.setAttribute("message", "정보가 없습니다");
+				action.setPath("/WEB-INF/views/commons/message.jsp");
+			}
 		} else {
 
 		}
