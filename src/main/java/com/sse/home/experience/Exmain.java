@@ -1,42 +1,25 @@
 package com.sse.home.experience;
 
-import java.util.List;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
-import com.sse.home.student.StudentDAO;
-import com.sse.home.student.StudentDTO;
+import com.sse.home.weather.WeatherDTO;
 
 public class Exmain {
 
 	public static void main(String[] args) {
 
-		StudentDAO dao = new StudentDAO();
-		List<StudentDTO> ar = null;
+		WeatherDTO dto = new WeatherDTO();
+		dto.setCity("a");
+		dto.setGion(1);
+		dto.setHumidity(2);
+		dto.setNum(1);
+		dto.setStatus("b");
 
-		try {
-			ar = dao.makeList();
-
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println(ar.size());
-
-		StudentDTO one = new StudentDTO();
-		one.setNum(2);
-
-		for (StudentDTO a : ar) {
-			System.out.println(one);
-
-			if (a.getNum() == one.getNum()) {
-				one = a;
-				break;
-			} else {
-				one = null;
-			}
-
-		}
-
-		System.out.println(one.getName());
-
+		File file = new File("C:\\study", "weather.txt");
+		FileWriter fw = null;
+		fw.wri
+		
 	}
 }

@@ -35,4 +35,15 @@ public class WeatherService {
 		}
 		return weatherDTO;
 	}
+
+	public void add(WeatherDTO weatherDTO) {
+
+		try {
+			wdao.add(weatherDTO);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 }

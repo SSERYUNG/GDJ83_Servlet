@@ -3,6 +3,7 @@ package com.sse.home.weather;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,5 +57,33 @@ public class WeatherDAO {
 		}
 
 		return result;
+	}
+
+	public void add(WeatherDTO weatherDTO) throws Exception {
+//		FileWriter에서 예외 발생한거 던져둠
+
+//		도시명-기온-상태-습도
+		int num = this.getWeathers().size() + 1;
+
+		StringBuffer sb = new StringBuffer();
+
+		sb.append(num);
+		sb.append("-");
+		sb.append(weatherDTO.getCity());
+		sb.append("-");
+		sb.append(weatherDTO.getGion());
+		sb.append("-");
+		sb.append(weatherDTO.getStatus());
+		sb.append("-");
+		sb.append(weatherDTO.getHumidity());
+
+		String line = sb.toString();
+
+		File file = new File("C:\\study", "weather.txt");
+		FileWriter fw = null;
+		fw = new FileWriter(file, true);
+		fw.write(line + "\r\n");
+		fw.flush();
+		fw.close();
 	}
 }

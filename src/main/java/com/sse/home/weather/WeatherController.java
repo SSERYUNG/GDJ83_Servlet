@@ -22,6 +22,8 @@ public class WeatherController {
 		Action action = new Action();
 		action.setFlag(true);
 
+		String method = request.getMethod().toUpperCase();
+
 		if (ar[2].equals("list")) {
 
 			List<WeatherDTO> wdtoar = ws.getWeathers();
@@ -29,7 +31,26 @@ public class WeatherController {
 
 			action.setPath("/WEB-INF/views/weather/list.jsp");
 		} else if (ar[2].equals("add")) {
-			action.setPath("/WEB-INF/views/weather/add.jsp");
+
+			if (method.equals("POST")) {
+				String city = request.getParameter("city");
+				double gion = Double.parseDouble(request.getParameter("gion"));
+				String status = request.getParameter("status");
+				int humidity = Integer.parseInt(request.getParameter("humidity"));
+
+				WeatherDTO weatherDTO = new WeatherDTO();
+				weatherDTO.setCity(city);
+				weatherDTO.setGion(gion);
+				weatherDTO.setStatus(status);
+				weatherDTO.setHumidity(humidity);
+
+				ws.add(weatherDTO);
+				action.setPath("/WEB-INF/views/weather/add.jsp");
+
+			} else {
+
+				action.setPath("/WEB-INF/views/weather/add.jsp");
+			}
 		} else if (ar[2].equals("delete")) {
 
 		} else if (ar[2].equals("detail")) {

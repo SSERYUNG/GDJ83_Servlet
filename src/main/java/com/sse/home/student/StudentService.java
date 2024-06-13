@@ -31,7 +31,7 @@ public class StudentService {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-//			student = null;
+			student = null;
 		}
 		return student;
 	}
