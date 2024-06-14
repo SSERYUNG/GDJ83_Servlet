@@ -8,28 +8,30 @@
 </head>
 <body>
 
-	<h1>날씨 정보 추가</h1>
+	<h1>수정 페이지</h1>
 	
-	<form action="./add" method="post">
-	
+		<form action="./update" method="post">
+		
+		<input type="hidden" name="num" value="${requestScope.dto.num}">
+		
 		<div>
 			<label>도시명</label>
-			<input type="text" name="city">
+			<input type="text" name="city" value="${requestScope.dto.city}">
 		</div>
 		
 		<div>
 			<label>기온</label>
-			<input type="text" name="gion">
+			<input type="text" name="gion" value="${requestScope.dto.gion}">
 		</div>
 	
 		<div>
 			<label>습도</label>
-			<input type="text" name="humidity">
+			<input type="text" name="humidity" value="${requestScope.dto.humidity}">
 		</div>
 
 		<div>
 			<label>상태</label>
-			<input type="text" name="status">
+			<input type="text" name="status" value="${requestScope.dto.status}">
 		</div>
 		
 		
