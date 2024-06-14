@@ -45,7 +45,9 @@ public class WeatherController {
 				weatherDTO.setHumidity(humidity);
 
 				ws.add(weatherDTO);
-				action.setPath("/WEB-INF/views/weather/add.jsp");
+
+				action.setFlag(false);
+				action.setPath("/weather/list");
 
 			} else {
 
