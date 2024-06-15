@@ -81,6 +81,25 @@ public class WeatherController {
 
 			if (method.toUpperCase().equals("POST")) {
 
+				WeatherDTO wdto = new WeatherDTO();
+
+				long a = Long.parseLong(request.getParameter("num"));
+				String city = request.getParameter("city");
+				double gion = Double.parseDouble(request.getParameter("gion"));
+				String status = request.getParameter("status");
+				int humidity = Integer.parseInt(request.getParameter("humidity"));
+
+				wdto.setNum(a);
+				wdto.setCity(city);
+				wdto.setGion(gion);
+				wdto.setStatus(status);
+				wdto.setHumidity(humidity);
+
+				ws.update(wdto);
+
+				action.setFlag(false);
+				action.setPath("./list");
+
 			} else {
 
 				WeatherDTO weatherDTO = new WeatherDTO();

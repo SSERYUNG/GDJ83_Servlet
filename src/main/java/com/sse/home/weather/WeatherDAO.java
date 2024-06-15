@@ -139,4 +139,52 @@ public class WeatherDAO {
 		}
 
 	}
+
+	public void update(WeatherDTO wdto) throws Exception {
+
+		List<WeatherDTO> list = this.getWeathers();
+
+		for (int i = 0; i < list.size(); i++) {
+			if (list.get(i).getNum() == wdto.getNum()) {
+				list.set(i, wdto);
+			}
+		}
+
+		for (int i = 0; i < list.size(); i++) {
+			list.get(i).setNum(i + 1);
+		}
+
+		for (int i = 0; i < list.size(); i++) {
+			StringBuffer sb = new StringBuffer();
+			sb.append(list.get(i).getNum());
+			sb.append("-");
+			sb.append(list.get(i).getCity());
+			sb.append("-");
+			sb.append(list.get(i).getGion());
+			sb.append("-");
+			sb.append(list.get(i).getStatus());
+			sb.append("-");
+			sb.append(list.get(i).getHumidity());
+			String line = sb.toString();
+
+			if (i == 0) {
+				File file = new File("C:\\study", "weather.txt");
+				FileWriter fw = null;
+				fw = new FileWriter(file, false);
+
+				fw.write(line + "\r\n");
+				fw.flush();
+				fw.close();
+			} else {
+				File file = new File("C:\\study", "weather.txt");
+				FileWriter fw = null;
+				fw = new FileWriter(file, true);
+
+				fw.write(line + "\r\n");
+				fw.flush();
+				fw.close();
+			}
+
+		}
+	}
 }
