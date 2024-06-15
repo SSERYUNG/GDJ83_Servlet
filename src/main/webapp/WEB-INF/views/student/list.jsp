@@ -45,6 +45,14 @@
 
 	</table>
 
+	<a href="./add">
+
+		<button>학생 추가</button>
+
+	</a>
+
+
+
 
 
 </body>

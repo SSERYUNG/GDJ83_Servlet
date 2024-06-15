@@ -11,52 +11,25 @@
  <h1>학생정보입력 페이지</h1>
  
  	<form action="/student/add" method="post">
- 	
+ 	 		
  		<div>
- 			<label for="num">번호</label>
- 			<input type="text" id="num" name="num">
- 		</div>
- 		
- 		<div>
- 			<label for="name">이름</label>
+ 			<label for="name">이름&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
  			<input type="text" id="name" name="name">
  		</div>
  		
  		 <div>
- 			<label for="avg">평균</label>
- 			<input type="text" id="avg" name="avg">
+ 			<label for="kor">국어점수</label>
+ 			<input type="text" id="kor" name="kor">
  		</div>
  		
- 		<div>
- 		
- 			<label></label>
- 			<input type="radio" name="ch" value="female">
- 			<input type="radio" name="ch" value="male">
+  		 <div>
+ 			<label for="eng">영어점수</label>
+ 			<input type="text" id="eng" name="eng">
  		</div>
  		
- 		<div>
- 		
- 		<select name="mobile">	
- 			<option value="KT">KT</option>
- 			<option value="SKT">SKT</option>
- 			<option value="LG">LG</option>
- 		</select>
- 		
- 		</div>
- 		
- 		<div>
- 		
- 		<input type="checkbox" name="ch2" value="v1">
- 		<input type="checkbox" name="ch2" value="v2">
- 		<input type="checkbox" name="ch2" value="v3">
- 		
- 		
- 		</div>
- 		
- 		<div>
- 		
- 			<textarea rows="" cols="" name="contents"></textarea>
- 		
+ 		 <div>
+ 			<label for="math">수학점수</label>
+ 			<input type="text" id="math" name="math">
  		</div>
  		
  		

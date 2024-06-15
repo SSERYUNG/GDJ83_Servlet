@@ -36,4 +36,33 @@ public class StudentService {
 		return student;
 	}
 
+	public void stadd(StudentDTO studentDTO) {
+
+		try {
+			stdao.addst(studentDTO);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	public void stremove(StudentDTO studentDTO) {
+		try {
+			stdao.removest(studentDTO);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void revise(StudentDTO studentDTO) {
+		try {
+			stdao.revise(studentDTO);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 }
