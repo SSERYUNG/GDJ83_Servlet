@@ -18,6 +18,7 @@
 <table class="tbl">
 	<thead>
 		<tr>
+			<th>번호</th>
 			<th>도시</th>
 			<th>기온</th>
 			<th>상태</th>
@@ -29,7 +30,8 @@
 	<c:forEach items="${requestScope.weatherlist}" var="weather">
 	
 		<tr>
-			<td>${pageScope.weather.city}</td>
+			<td>${pageScope.weather.num}</td>
+			<td><a href="./detail?num=${pageScope.weather.num}">${pageScope.weather.city}</a></td>
 			<td>${pageScope.weather.gion}</td>
 			<td>${pageScope.weather.status}</td>
 			<td>${pageScope.weather.humidity}</td>
@@ -39,6 +41,13 @@
 	</tbody>
 	
 </table>
+
+<div>
+
+<a href = "./add">날씨등록</a>
+
+</div>
+
 
 </body>
 </html>
